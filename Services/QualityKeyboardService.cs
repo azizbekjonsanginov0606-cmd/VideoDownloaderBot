@@ -14,7 +14,7 @@ public sealed class QualityKeyboardService
 
         foreach (var format in formats)
         {
-            var quality =
+            var label =
                 format.Height switch
                 {
                     2160 => "4K",
@@ -27,13 +27,11 @@ public sealed class QualityKeyboardService
                     _ => $"{format.Height}p"
                 };
 
-            var size =
-                FormatSize(format);
-
             buttons.Add(
-                InlineKeyboardButton.WithCallbackData(
-                    $"{quality} • {size}",
-                    $"format:{format.FormatId}"));
+                InlineKeyboardButton
+                    .WithCallbackData(
+                        label,
+                        $"format:{format.FormatId}"));
         }
 
         var rows =
@@ -56,27 +54,5 @@ public sealed class QualityKeyboardService
         }
 
         return new InlineKeyboardMarkup(rows);
-    }
-
-    private static string FormatSize(
-        VideoFormat format)
-    {
-        if (format.TotalSize is null)
-        {
-            return "размер неизвестен";
-        }
-
-        var megabytes =
-            format.TotalSize.Value /
-            1024.0 /
-            1024.0;
-
-        var prefix =
-            format.IsApproximateSize
-                ? "~"
-                : "";
-
-        return
-            $"{prefix}{megabytes:F1} MB";
     }
 }

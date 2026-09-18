@@ -27,10 +27,9 @@ public sealed class VideoDownloaderService
                 fileName);
 
         var formatSelector =
-    string.IsNullOrWhiteSpace(
-        format.AudioFormatId)
-        ? format.FormatId
-        : $"{format.FormatId}+{format.AudioFormatId}";
+            format.HasAudio
+                ? format.FormatId
+                : $"{format.FormatId}+bestaudio";
 
         using var process =
             new Process();

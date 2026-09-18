@@ -18,3 +18,4 @@
 /home/hacker/VideoDownloaderBot/obj/Debug/net10.0/VideoDownloaderBot.pdb
 /home/hacker/VideoDownloaderBot/obj/Debug/net10.0/VideoDownloaderBot.genruntimeconfig.cache
 /home/hacker/VideoDownloaderBot/obj/Debug/net10.0/ref/VideoDownloaderBot.dll
+/home/hacker/VideoDownloaderBot/obj/Debug/net10.0/VideoDownloaderBot.sourcelink.json
